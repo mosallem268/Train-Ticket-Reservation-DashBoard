@@ -35,7 +35,7 @@
               :append-icon="show ? 'visibility' : 'visibility_off'"
               :type="show ? 'text' : 'password'"
             ></v-text-field>
-              
+
             <v-checkbox color="white" v-model="checkbox" label="Remember me" type="password"></v-checkbox>
 
             <v-btn
@@ -96,7 +96,11 @@ export default {
               this.loader = null;
               console.log(error);
             }
-          );
+          )
+          .catch(err => {
+            this.loading = false;
+            this.loader = null;
+          });
       }
     }
   }
@@ -151,6 +155,6 @@ export default {
   margin-top: 50px;
 }
 .a {
- color: white;
+  color: white;
 }
 </style>

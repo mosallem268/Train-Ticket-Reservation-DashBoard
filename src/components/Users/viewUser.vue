@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     show() {
-      // this.dialog= false
+      this.dataArray = []
       this.$ax.get(`reservation/byUser/${this.id}`).then(res => {
         let data = res.data.reservation;
         for (let k in data) {

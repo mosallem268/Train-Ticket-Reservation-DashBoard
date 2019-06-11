@@ -57,7 +57,8 @@ export const routes = [
     //   console.log("elmsg hatzhr lma el route dh yigy wbas")
     //   next()
     // }
-  }, {
+  }, 
+  {
     path: '/signin',
     name: 'signin',
     component: Signin,
@@ -118,6 +119,6 @@ export const routes = [
       { path: 'createTrain', component: addTrain, name: 'addTrain' },
       { path: 'updateTrain/:idUpdateTrain', component: updateTrain, name: 'updateTrain' },]
   }, {
-    path: '*', redirect: '/'
+    path: '*', redirect: '/clients'
   }
 ]

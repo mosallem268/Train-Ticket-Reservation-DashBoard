@@ -85,12 +85,13 @@ export default {
             { title: "Add New Employee", route: "/employee/createEmployee" }
           ]
         },
-        { ///////////////////////////////////////////
+        {
+          ///////////////////////////////////////////
           action: "fa-users",
           title: "Trip",
           items: [
-            { title: "List of Trips", route: "/user" },
-            { title: "Add Trips", route: "/user" }
+            { title: "List of Trips", route: "/trip" },
+            { title: "Add Trips", route: "/trip/createTrip" }
           ]
         },
         {
@@ -106,36 +107,6 @@ export default {
           title: "Admin",
           items: [
             { title: "List Admin Team ", route: "/admin" },
-            { title: "Add New Satff Member", route: "/staff/addStaff" }
-          ]
-        },
-        {
-          action: "fa-envelope",
-          title: "Complains",
-          items: [
-            { title: "List of All Complains", route: "a" },
-            { title: "Answer Complains", route: "a" }
-          ]
-        },
-        {
-          action: "fa-calendar-check",
-          title: "Appointments",
-          items: [
-            { title: "Calendar", route: "a" },
-            { title: "Add New Appointment", route: "a" },
-            { title: "Add New Schedule", route: "a" }
-          ]
-        },
-        {
-          action: "fa-user-injured",
-          title: "Patients",
-          items: [
-            {
-              title: "Medical History of a Patient",
-              route: "/patient/medicalHistory"
-            },
-            { title: "Add New Patient", route: "/patient/addPatient" },
-            { title: "Add New Node", route: "/patient/addNewNode" }
           ]
         }
       ]
