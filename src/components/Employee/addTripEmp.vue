@@ -25,9 +25,6 @@
                 persistent-hint
               ></v-select>
             </v-flex>
-            <v-flex md12>
-              <v-btn style="width:100%" @click="post" class="success">Done</v-btn>
-            </v-flex>
           </v-layout>
         </v-card-text>
 
@@ -35,7 +32,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="info" @click="dialog = false">Done</v-btn>
+          <v-btn color="info" @click="(add())">Done</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -52,8 +49,8 @@ export default {
       userData: {},
       nationalID: "",
       dialog: false,
-      tripsData:[],
-      trip:{}
+      tripsData: [],
+      trip: {}
     };
   },
   methods: {
@@ -66,12 +63,23 @@ export default {
     },
     getAllTrips() {
       this.$ax.get("/trip").then(res => {
-        let data = res.data
-        for(let k in data){
-          let aa = data[k]
-          this.tripsData = aa 
+        let data = res.data;
+        for (let k in data) {
+          let aa = data[k];
+          this.tripsData = aa;
         }
       });
+    },
+    add() {
+      this.$ax
+        .post("employeeTrip", {
+          employee: this.userData._id,
+          trip: this.trip._id
+        })
+        .then(res => {
+          this.dialog = false;
+        })
+        .catch(err => console.log(err));
     }
   }
 };

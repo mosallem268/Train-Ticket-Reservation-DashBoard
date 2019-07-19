@@ -44,44 +44,50 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-        userName:'',
-        pass: null,
-        name: '',
-        confirmPass: null,
-        email:'',  
-        phone:null,  
-        nid:null,  
-        age:null,  
-    }
-  },methods:{
-    submit(){
-        const result={
-          username:this.userName,
-          password: this.pass,
-          name: this.name,
-          email:this.email,  
-          phoneNumber:this.phone,  
-          gender:'male',
-          dateOfBirth:"2019-02-19T20:18:02.102Z",
-          nationalID:this.nid, 
-          validation: true ,
-          balance: 100
-        }
-      console.log(result)
-      this.$ax.post('/employee/signup' , result).then(res=>console.log(res)).catch(error=>console.log(error))
+  data() {
+    return {
+      userName: "",
+      pass: null,
+      name: "",
+      confirmPass: null,
+      email: "",
+      phone: null,
+      nid: null,
+      age: null
+    };
+  },
+  methods: {
+    submit() {
+      const result = {
+        username: this.userName,
+        password: this.pass,
+        name: this.name,
+        email: this.email,
+        phoneNumber: this.phone,
+        gender: "male",
+        dateOfBirth: "2019-02-19T20:18:02.102Z",
+        nationalID: this.nid,
+        validation: true,
+        balance: 100
+      };
+      console.log(result);
+      this.$ax
+        .post("/employee/signup", result)
+        .then(res => {
+          this.$router.push("/employee");
+        })
+        .catch(error => console.log(error));
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.btn{
+.btn {
   padding: 0 50px;
   text-align: center;
-  background-image: linear-gradient(to right , #1DC4E9 , #1DE9B6);
-  float:right;
+  background-image: linear-gradient(to right, #1dc4e9, #1de9b6);
+  float: right;
   border-radius: 8px;
 }
 </style>
